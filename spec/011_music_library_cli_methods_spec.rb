@@ -1,4 +1,5 @@
 require "spec_helper"
+require 'pry'
 
 describe "MusicLibraryController - CLI Methods" do
   let(:music_library_controller) { MusicLibraryController.new("./spec/fixtures/mp3s") }
@@ -6,6 +7,7 @@ describe "MusicLibraryController - CLI Methods" do
 
   describe "#list_songs" do
     it "prints all songs in the music library in a numbered list (alphabetized by song name)" do
+      #binding.pry
       expect($stdout).to receive(:puts).with("1. Thundercat - For Love I Come - dance")
       expect($stdout).to receive(:puts).with("2. Real Estate - Green Aisles - country")
       expect($stdout).to receive(:puts).with("3. Real Estate - It's Real - hip-hop")
@@ -125,6 +127,7 @@ describe "MusicLibraryController - CLI Methods" do
 
     it "prints all songs by a particular genre in a numbered list (alphabetized by song name)" do
       allow(music_library_controller).to receive(:gets).and_return("hip-hop")
+      #binding.pry
 
       expect($stdout).to receive(:puts).with("Please enter the name of a genre:")
       expect($stdout).to receive(:puts).with("1. Real Estate - It's Real")
