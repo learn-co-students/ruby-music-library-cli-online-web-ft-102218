@@ -35,18 +35,6 @@ class Song
     song
   end
 
-  def self.find_by_name(name)
-    @@all.find { |song| song.name == name }
-  end
-
-  def self.find_or_create_by_name(name)
-    song = Song.find_by_name(name)
-    if song.nil?
-      song = Song.create(name)
-    end
-    song
-  end
-
   def self.new_from_filename(filename)
     filearray = filename.split(" - ")
     song = Song.new(filearray[1])
